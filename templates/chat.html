@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <!-- Tailwind CSS output file -->
+    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+
+    <!-- Alpine.js tag - directly from CDN (not recommended for production) -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+</head>
+<body>
+    <div style="display: flex; justify-content: center; margin: 10%;">
+                <c-card class='w-[380px]'>
+            <c-card.header>
+                <c-card.title>CHAT</c-card.title>
+                <c-card.description>COMMUNICATE WITH YOUR FRIENDS</c-card.description>
+            </c-card.header>
+            <c-card.content class='space-y-2'>
+                <div class='flex flex-col space-y-1'>
+                    
+                </div>
+            </c-card.content>
+            <c-card.footer >
+                <form method="post" class='flex'>
+
+                {% csrf_token %}
+                <c-input id='name' name="user_message" required class='me-1' placeholder='Message' />
+                <c-button style="margin-inline-start: 20px;">Submit</c-button>
+                </form>
+            </c-card.footer>
+        </c-card>
+
+
+    </div>
+   
+</body>
+</html>
