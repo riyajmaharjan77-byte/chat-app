@@ -9,11 +9,11 @@ class User(AbstractUser):
     image= models.ImageField()
 
 class friendrequest(models.Model):
-    request_user=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,related_name='request')
+    request_user=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,related_name='requestuser')
     requested_by_user=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,related_name='requested_by')
-    status=models.CharField(max_length=200,default='pending')
+    status=models.CharField(max_length=200,default='Pending')
 
 class Message(models.Model):
     receiver=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,related_name='receiver_user')
     sender=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,related_name='sender_user')
-    message=models.TextField()
+    message=models.TextField(null=True)
